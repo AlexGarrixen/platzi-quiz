@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platzi quiz</title>
+  <link rel="stylesheet" href="./assets/css/app.css" />
+</head>
+<body>
+  <div class="container">
+    <div id="quiz-view-initial" class="quiz-view-initial">
+      <div class="quiz-view-initial__svg">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M19 5v14H5V5h14m1.1-2H3.9c-.5 0-.9.4-.9.9v16.2c0 .4.4.9.9.9h16.2c.4 0 .9-.5.9-.9V3.9c0-.5-.5-.9-.9-.9zM11 7h6v2h-6V7zm0 4h6v2h-6v-2zm0 4h6v2h-6zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+      </div>
+      <div class="quiz-view-initial__information">
+        <h2 class="quiz-view-inital__title">¡Excelente!</h2>
+        <h4 class="quiz-view-inital__subtitle">Hoy sabras que aprendiste en el curso de React js</h4>
+        <p>
+          <strong>No te preocupes.</strong>
+          Puedes intentar pasar el examen tanta veces como quieres.Una vez entres, responderas 5 preguntas en
+          5 minutos. Si fallas lo puedes volver a reintentar
+        </p>
+        <button class="quiz-view-initial__button-start" id="buttonStart">Empezar</button>
+      </div>
+    </div>
+
+    <div class="quiz" id="quiz" style="display: none">
+      <div class="quiz-countdown">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+        <p id="quiz-countdown" class="quiz-countdown__time"></p>
+      </div>
+
+      <div class="quiz-header">
+        <h3 class='quiz__title-course'>Javascript</h3>
+        <p id='quiz__questions_num' class='quiz__questions_num'></p>
+      </div>
+
+      <h2 class="quiz__title-question" id="titleQuestion">
+        Titulo Pregunta
+      </h2>
+      
+      <div class="quiz__options">
+        <button class="buttonOption">
+          <span class="button-option__name-option">
+            a.
+          </span>
+          <p id="button-option-response" class="button-option__response"></p>
+        </button>
+        <button class="buttonOption">
+          <span class="button-option__name-option">
+            b.
+          </span>
+          <p id="button-option-response" class="button-option__response"></p>
+        </button>
+        <button class="buttonOption">
+          <span class="button-option__name-option">
+            c.
+          </span>
+          <p id="button-option-response" class="button-option__response"></p>
+        </button>
+        <button class="buttonOption">
+          <span class="button-option__name-option">
+            d.
+          </span>
+          <p id="button-option-response" class="button-option__response"></p>
+        </button>   
+      </div>
+  
+      <div class="quiz__actions">
+        <button id="buttonNext" class="quiz__button-next">Siguiente</button>
+        <button id="buttonSkip" class="quiz__button-skip">Omitir</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <div id='dialog-results' class="dialog-results"  style="display:none">
+    <h3 class="dialog-results__title">Tu puntaje es de:</h3>
+    <div class="dialog-results__progress">
+      <svg class="progress-svg" height="160" width="160">
+        <circle 
+          class="progress-svg__circle" 
+          stroke-width="6"
+          r="72"
+          cx="80"
+          cy="80"
+        />
+        <text id='dialog-results__points' class="dialog-results__points" x="50%" y="50%" text-anchor="middle" dy=".3em">10</text>
+      </svg>
+    </div>
+    <p id="dialog-results__message" class="dialog-results__message"></p>
+    <button id="btn-restart" class="dialog-results__btn-restart">
+      Intentar de nuevo
+    </button>
+  </div>
+  
+ <script src="./assets/js/countdown.js"></script>
+ <script src="./assets/js/responses.js"></script>
+ <script src="./assets/js/questions.js"></script>
+ <script src="./assets/js/app.js"></script>
+</body>
+</html>
