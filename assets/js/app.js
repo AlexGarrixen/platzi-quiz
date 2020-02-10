@@ -101,7 +101,7 @@ function setPoints() {
  setProgressSvg(pointsInPercentage);
  points.textContent = pointsObtained;
  
- if (responsesSuccess === 5) dialogResultsMessage.textContent = '¡Wow, eres un ninja en react js!';
+ if (responsesSuccess === 5) dialogResultsMessage.textContent = '¡Wow, eres un ninja en javascript!';
  else if (responsesSuccess === 4) dialogResultsMessage.textContent = '¡Genial, sigue asi!';
  else dialogResultsMessage.textContent = '¡No te rindas, sigue perstiendo!';
 }
