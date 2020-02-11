@@ -26,7 +26,7 @@ const dialogResultsMessage = document.getElementById('dialog-results__message')
 const buttonRestart = document.getElementById('btn-restart')
 const titleQuestion = document.getElementById('titleQuestion');
 const quizCountdown = document.getElementById('quiz-countdown');
-const buttonsOptions = document.getElementsByClassName('buttonOption');
+const nodeOptions = document.getElementById('quiz__options');
 const countdown = new Countdown();
 
 
@@ -44,6 +44,7 @@ buttonStart.onclick = function() {
 }
 
 buttonSkip.onclick = function() {
+  nodeOptions.innerHTML = '';
   clearClassButtons()
   questions.push(questions[0]);
   questions.shift();
@@ -53,6 +54,7 @@ buttonSkip.onclick = function() {
 
 buttonNext.onclick = function() {
   if (responseUser) {
+    nodeOptions.innerHTML = '';
     clearClassButtons();
     responses.push(responseUser);
     setNumQuestions();
@@ -65,6 +67,7 @@ buttonNext.onclick = function() {
       showQuestion(questions);
     } else {
       if (dialogResults.style.display === 'none') dialogResults.style.display = 'flex';
+      quiz.style.display = 'none';
       setPoints();
       countdown.cancelCountdown();
     }
@@ -81,6 +84,7 @@ countdown.suscribeOnTime((time) => quizCountdown.textContent = time);
 
 countdown.suscribeOnFinish(() => {
   if (dialogResults.style.display === 'none') dialogResults.style.display = 'flex';
+  quiz.style.display = 'none';
   setPoints();
 })
 
@@ -109,22 +113,33 @@ function setPoints() {
 
 function showQuestion(questions_) {
   const options = questions_[0].options;
+ 
   titleQuestion.textContent = questions_[0].title;
+  options.forEach((opt) => {
+    let btn = document.createElement('button');
+    let p = document.createElement('p');
 
-  Array.prototype.forEach.call(buttonsOptions, (option, idx) => {
-    option.children[1].textContent = `${options[idx].response}`; 
-    option.dataset.option = options[idx].option;
-    option.onclick = (e) => {
-      clearClassButtons();
-      e.target.classList.add('buttonOption--select');
-      responseUser =  { idQuestion: questions_[0].id, response: e.target.dataset.option } 
-    }
+    btn.dataset.option = opt.option;
+    btn.className = 'button-option';
+    btn.onclick = handleClickButtonOptions;
+    p.className = 'button-option__name-response'
+    p.textContent = opt.response
+
+    btn.appendChild(p)
+    nodeOptions.appendChild(btn)
   })
 }
 
+function handleClickButtonOptions(e) {
+  clearClassButtons();
+  e.target.classList.add('button-option--select');
+  responseUser =  { idQuestion: questions[0].id, response: e.target.dataset.option } 
+}
+
 function clearClassButtons() {
+  const buttonsOptions = document.getElementsByClassName('button-option');
   Array.prototype.forEach.call(buttonsOptions, (button) => {
-    if (button.classList.contains('buttonOption--select')) button.classList.remove('buttonOption--select')
+    if (button.classList.contains('button-option--select')) button.classList.remove('button-option--select')
   })
 }
 

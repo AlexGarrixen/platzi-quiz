@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Platzi quiz</title>
   <link rel="stylesheet" href="./assets/css/app.css" />
 </head>
@@ -39,31 +39,7 @@
         Titulo Pregunta
       </h2>
       
-      <div class="quiz__options">
-        <button class="buttonOption">
-          <span class="button-option__name-option">
-            a.
-          </span>
-          <p id="button-option-response" class="button-option__response"></p>
-        </button>
-        <button class="buttonOption">
-          <span class="button-option__name-option">
-            b.
-          </span>
-          <p id="button-option-response" class="button-option__response"></p>
-        </button>
-        <button class="buttonOption">
-          <span class="button-option__name-option">
-            c.
-          </span>
-          <p id="button-option-response" class="button-option__response"></p>
-        </button>
-        <button class="buttonOption">
-          <span class="button-option__name-option">
-            d.
-          </span>
-          <p id="button-option-response" class="button-option__response"></p>
-        </button>   
+      <div id='quiz__options' class="quiz__options">
       </div>
   
       <div class="quiz__actions">
@@ -94,6 +70,7 @@
     </button>
   </div>
   
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js'></script>
  <script src="./assets/js/countdown.js"></script>
  <script src="./assets/js/responses.js"></script>
  <script src="./assets/js/questions.js"></script>
